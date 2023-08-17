@@ -16,6 +16,7 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var trueButton: UIButton!
 	@IBOutlet weak var falseButton: UIButton!
+	@IBOutlet weak var trueButton2: UIButton!
 	
 	var quizBrain = QuizBrain()
 	
@@ -47,17 +48,27 @@ class ViewController: UIViewController {
 		 
 	}
 	
-	 
 	
 	func updateUI() {
 		
 		questionLabel.textAlignment = .center
 		questionLabel.text = quizBrain.getQuestionText()
+		
+		let answerChoices = quizBrain.getAnswers()
+		trueButton.setTitle(answerChoices[0], for: .normal)
+		trueButton2.setTitle(answerChoices[1], for: .normal)
+		falseButton.setTitle(answerChoices[2], for: .normal)
+		
+		progressBar.progress = quizBrain.getProgress()
+		scoreLabel.text = "Score: \(quizBrain.getScore())"
+		
 		// delay color on button
 		Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { (timer) in
 			self.trueButton.backgroundColor = .clear
 			self.falseButton.backgroundColor = .clear
+			self.trueButton2.backgroundColor = .clear
 		}
+		
 		
 		progressBar.progress += 1
 		progressBar.progress = quizBrain.getProgress()
