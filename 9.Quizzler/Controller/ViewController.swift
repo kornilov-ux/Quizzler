@@ -28,7 +28,6 @@ class ViewController: UIViewController {
 	
 	@IBAction func answerButtonPressed(_ sender: UIButton) {
 		
-		
 		let userAnswer = sender.currentTitle! 
 		let userGotItRight = quizBrain.checkAnswer(userAnswer)
 		

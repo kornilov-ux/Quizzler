@@ -10,7 +10,7 @@ import Foundation
 
 struct QuizBrain {
 	
-	let quize = [ Question(q: "Which is the largest organ in the human body?", a: ["Heart", "Skin", "Large Intestine"], correctAnswer: "Skin"),
+	var quize = [ Question(q: "Which is the largest organ in the human body?", a: ["Heart", "Skin", "Large Intestine"], correctAnswer: "Skin"),
 				  Question(q: "Five dollars is worth how many nickels?", a: ["25", "50", "100"], correctAnswer: "100"),
 				  Question(q: "What do the letters in the GMT time zone stand for?", a: ["Global Meridian Time", "Greenwich Mean Time", "General Median Time"], correctAnswer: "Greenwich Mean Time"),
 				  Question(q: "What is the French word for 'hat'?", a: ["Chapeau", "Écharpe", "Bonnet"], correctAnswer: "Chapeau"),
@@ -46,7 +46,7 @@ struct QuizBrain {
 	}
 	
 	func getAnswers() -> [String] {
-		return quize[questionNumber].answer.shuffled()
+		return quize[questionNumber].answer
 		}
 	
 	func getScore() -> Int {
@@ -59,6 +59,7 @@ struct QuizBrain {
 		if questionNumber + 1 < quize.count {
 			questionNumber += 1
 		} else {
+			quize.shuffle()
 			questionNumber = 0
 			score = 0
 			
