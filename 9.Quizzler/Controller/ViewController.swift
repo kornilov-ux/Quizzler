@@ -68,14 +68,12 @@ class ViewController: UIViewController {
 			self.trueButton2.backgroundColor = .clear
 		}
 		
-		
 		progressBar.progress += 1
 		progressBar.progress = quizBrain.getProgress()
 		
 		scoreLabel.text = "Score: \(quizBrain.getScore())"
 	}
 	
-
-
+	
 }
 

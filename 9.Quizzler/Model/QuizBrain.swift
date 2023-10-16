@@ -53,7 +53,6 @@ struct QuizBrain {
 		return score
 	}
 	
-	
 	mutating func nextQuestion() {
 		
 		if questionNumber + 1 < quize.count {
@@ -62,7 +61,6 @@ struct QuizBrain {
 			quize.shuffle()
 			questionNumber = 0
 			score = 0
-			
 		}
 		
 	}
